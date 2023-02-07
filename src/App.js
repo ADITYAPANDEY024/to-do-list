@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
-
+import Navbar from './components/Navbar';
+import MainFrame from './components/MainFrame';
+import Alert from './components/Alert';
 function App() {
+  const [todo, settodo] = useState()
+  const [display, setdisplay] = useState("none")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Alert todo={todo} showAlert={settodo} display={display} />
+      <MainFrame todo={todo} showAlert={settodo} display={display} setdisplay={setdisplay}/>
     </div>
   );
 }
